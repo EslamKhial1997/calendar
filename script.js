@@ -9,13 +9,13 @@ let city = document.querySelector(".city");
 let clunder1 = document.querySelector(".clunder1");
 let clunder = document.querySelector(".clunder");
 
-function adress(url) {
+
     fetch(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`)
     .then((res) => res.json())
     .then((data) => items(data.data));
-}
 
-  adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`);
+
+//   adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`);
 // city.addEventListener("change", () => {
 //     adress(`http://api.aladhan.com/v1/timingsByAddress?address=${city.value}`);
 //     document.querySelector(".prayer-Time Strong span").innerHTML = city.value;
