@@ -9,17 +9,19 @@ let city = document.querySelector(".city");
 let clunder1 = document.querySelector(".clunder1");
 let clunder = document.querySelector(".clunder");
 
-
-    fetch(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`)
+city.addEventListener("change", () => {
+  adress(`https://api.aladhan.com/v1/timingsByAddress?address=${city.value}`);
+  document.querySelector(".prayer-Time Strong span").innerHTML = city.value;
+});
+window.addEventListener("load", () => {
+  adress(`https://api.aladhan.com/v1/timingsByAddress?address=العريش`);
+});
+function adress(url) {
+  fetch(url)
     .then((res) => res.json())
     .then((data) => items(data.data));
+}
 
-
-//   adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`);
-// city.addEventListener("change", () => {
-//     adress(`http://api.aladhan.com/v1/timingsByAddress?address=${city.value}`);
-//     document.querySelector(".prayer-Time Strong span").innerHTML = city.value;
-//   });
 function showTime() {
   var date = new Date();
   var h = date.getHours(); // 0 - 23
