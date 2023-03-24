@@ -1,4 +1,3 @@
-
 let prayer = document.querySelector(".prayer1");
 let prayer2 = document.querySelector(".prayer2");
 let prayer3 = document.querySelector(".prayer3");
@@ -78,5 +77,4 @@ function items(items) {
     <Strong>${items.date.hijri.weekday.ar}:-</Strong>
       <span>${items.date.hijri.day} ${items.date.hijri.month.ar} ${items.date.hijri.year}</span>
       `;
-
 }
