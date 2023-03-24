@@ -1,4 +1,4 @@
-
+const url = "http://api.aladhan.com/v1/timingsByAddress?address=العريش";
 let prayer = document.querySelector(".prayer1");
 let prayer2 = document.querySelector(".prayer2");
 let prayer3 = document.querySelector(".prayer3");
@@ -9,19 +9,19 @@ let city = document.querySelector(".city");
 let clunder1 = document.querySelector(".clunder1");
 let clunder = document.querySelector(".clunder");
 
-city.addEventListener("change", () => {
-  adress(`http://api.aladhan.com/v1/timingsByAddress?address=${city.value}`);
-  document.querySelector(".prayer-Time Strong span").innerHTML = city.value;
-});
-window.addEventListener("load", () => {
-  adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`);
-});
-function adress(url) {
+// city.addEventListener("change", () => {
+//   adress(`http://api.aladhan.com/v1/timingsByAddress?address=${city.value}`);
+//   document.querySelector(".prayer-Time Strong span").innerHTML = city.value;
+// });
+// window.addEventListener("load", () => {
+//   adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`);
+// });
+function adress() {
   fetch(url)
     .then((res) => res.json())
     .then((data) => items(data.data));
 }
-
+adress()
 function showTime() {
   var date = new Date();
   var h = date.getHours(); // 0 - 23
