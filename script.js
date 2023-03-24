@@ -1,4 +1,4 @@
-const url = "http://api.aladhan.com/v1/timingsByAddress?address=العريش";
+
 let prayer = document.querySelector(".prayer1");
 let prayer2 = document.querySelector(".prayer2");
 let prayer3 = document.querySelector(".prayer3");
@@ -9,20 +9,17 @@ let city = document.querySelector(".city");
 let clunder1 = document.querySelector(".clunder1");
 let clunder = document.querySelector(".clunder");
 
-
-city.addEventListener("change", ()=>{
-  
-    adress(`http://api.aladhan.com/v1/timingsByAddress?address=${city.value}`) 
-    document.querySelector(".prayer-Time Strong span").innerHTML = city.value
+city.addEventListener("change", () => {
+  adress(`http://api.aladhan.com/v1/timingsByAddress?address=${city.value}`);
+  document.querySelector(".prayer-Time Strong span").innerHTML = city.value;
 });
-window.addEventListener("load" , ()=>{
-    adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`) 
-    
-})
+window.addEventListener("load", () => {
+  adress(`http://api.aladhan.com/v1/timingsByAddress?address=العريش`);
+});
 function adress(url) {
-    fetch(url)
+  fetch(url)
     .then((res) => res.json())
-    .then((data) => items(data.data)); 
+    .then((data) => items(data.data));
 }
 
 function showTime() {
@@ -73,14 +70,13 @@ function items(items) {
   prayer6.innerHTML = `<div class="prayer">
     <span>${items.timings.Isha} ص</span>
     </div>`;
-    clunder1.innerHTML = `
+  clunder1.innerHTML = `
     <Strong>${items.date.hijri.weekday.ar}:-</Strong>
       <span>${items.date.readable} </span>
       `;
-    clunder.innerHTML = `
+  clunder.innerHTML = `
     <Strong>${items.date.hijri.weekday.ar}:-</Strong>
       <span>${items.date.hijri.day} ${items.date.hijri.month.ar} ${items.date.hijri.year}</span>
       `;
-      console.log(items);
-}
 
+}
